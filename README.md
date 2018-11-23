@@ -1,6 +1,6 @@
 # PDF2TXT
 
-It's a python script that  convert PDF to txt using PDFMiner. 
+It's a python script that  convert PDF to TXT using PDFMiner. 
 
 There are two main functions that you can choose to use.
 
