@@ -68,7 +68,6 @@ def onePdfToTxt(filepath, outpath):
                     #判断是否含有get_text()方法，获取我们想要的文字
                     if hasattr(out,"get_text"):
                         text=out.get_text()
-                        print(text)
                         outfp.write(text+'\n')
             fp.close()
             outfp.close()
@@ -87,4 +86,4 @@ def manyPdfToTxt (fileDir):
         filePath = fileDir+'\\'+file
         outPath = tarDir+'\\'+re.sub(replace, '', file)+'.txt'
         onePdfToTxt(filePath, outPath)
-        print("saved in"+outPath)
+        print("saved in "+outPath)
