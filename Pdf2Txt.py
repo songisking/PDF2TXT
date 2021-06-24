@@ -60,7 +60,7 @@ def onePdfToTxt(filepath, outpath):
             # 循环遍历列表，每次处理一页的内容 doc.get_pages() 获取page列表
             for page in enumerate(PDFPage.create_pages(doc)):
                 #利用解释器的process_page()方法解析读取单独页数
-                interpreter.process_page(page)
+                interpreter.process_page(page[1])
                 #使用聚合器get_result()方法获取内容
                 layout = device.get_result()
                 #这里layout是一个LTPage对象,里面存放着这个page解析出的各种对象
@@ -68,7 +68,6 @@ def onePdfToTxt(filepath, outpath):
                     #判断是否含有get_text()方法，获取我们想要的文字
                     if hasattr(out,"get_text"):
                         text=out.get_text()
-                        print(text)
                         outfp.write(text+'\n')
             fp.close()
             outfp.close()
@@ -87,9 +86,4 @@ def manyPdfToTxt (fileDir):
         filePath = fileDir+'\\'+file
         outPath = tarDir+'\\'+re.sub(replace, '', file)+'.txt'
         onePdfToTxt(filePath, outPath)
-        print("saved in"+outPath)
-
-
-
-
-
+        print("saved in "+outPath)
